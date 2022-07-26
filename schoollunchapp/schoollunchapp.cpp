@@ -94,11 +94,11 @@ int main() {
 	{
 		system("cls");
 		cout << "\n\nSchool Lunch System\n\n";
-		cout << " students name : \n";
-		cout << " class room : \n";
-		cout << "view the menu : \n";
-		cout << "show orders";
-
+		cout << "1. students name : \n";
+		cout << "2. class room : \n";
+		cout << "3. view the menu : \n";
+		cout << "4. show orders: \n";
+		cout << "Enter option\n";
 	}
 
 	return 0;
