@@ -1,5 +1,5 @@
 //Program execution beginsand ends there.
- 
+
 
 #include <iostream>
 #include <fstream>
@@ -54,6 +54,18 @@ void createAccount(string email, string password) {
 	fs.close();
 }
 
+void showMenu()
+{
+	system("cls");
+	cout << "\n\tLunch Menu\n\n";
+	cout << "\n 1. American Hot dogs";
+	cout << "\n 2.  Chicken and bacon pasta with pesto and spinach";
+	cout << "\n 3. Sushi";
+	cout << "\n 4. Beef Lasagna with sour cream";
+	cout << "\n 5.Creamy chicken and corn soup with bread";
+
+}
+
 int main() {
 	bool running = true;
 	bool login = false;
@@ -77,6 +89,7 @@ int main() {
 			if (auth(email, password) == true) {
 				cout << endl << "LOGGED IN" << endl;
 				login = true;
+				running = false;
 				break;
 			}
 			else {
@@ -99,6 +112,13 @@ int main() {
 		cout << "3. view the menu : \n";
 		cout << "4. show orders: \n";
 		cout << "Enter option\n";
+		int menuOption;
+		cin >> menuOption;
+
+		if (menuOption == 4)
+		{
+			showMenu();
+		}
 	}
 
 	return 0;
