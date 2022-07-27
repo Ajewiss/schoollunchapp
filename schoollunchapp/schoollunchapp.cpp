@@ -24,10 +24,10 @@ int getChoice() {
 }
 
 string getEmail() {
-	string email;
-	cout << "Email: ";
-	cin >> email;
-	return email;
+	string user;
+	cout << "user: ";
+	cin >> user;
+	return user;
 }
 
 string getPassword() {
@@ -37,13 +37,13 @@ string getPassword() {
 	return password;
 }
 
-bool auth(string email, string password) {
+bool auth(string user, string password) {
 	string line;
 	bool foundEmail = false;
 	fstream fs;
 	fs.open("data.txt", fstream::in);
 	while (getline(fs, line)) {
-		if (line == email) {
+		if (line == user) {
 			foundEmail = true;
 		}
 		if (line == password && foundEmail) {
@@ -54,10 +54,10 @@ bool auth(string email, string password) {
 	return false;
 }
 
-void createAccount(string email, string password) {
+void createAccount(string user, string password) {
 	fstream fs;
 	fs.open("data.txt", fstream::app);
-	fs << endl << email << endl << password;
+	fs << endl << user << endl << password;
 	fs.close();
 }
 
@@ -92,27 +92,28 @@ void viewOrders(Order orders[100], int orderNumber) {
 	cout << "view current orders \n\n ";
 	for (int i = 0; i < orderNumber; i++)
 	{
-		cout << "order " << i << " student : " << orders[i].student
+		cout << "\norder " << i << " student : " << orders[i].student
 			<< " classroom : " << orders[i].classRoom
 			<< " order : ";
 		switch (orders[1].menuItem)
 		{
 		case 1:
-			cout << "\n 1. American Hot dogs";
+			cout << "1. American Hot dogs";
 			break;
 		case 2:
-			cout << "\n 2.  Chicken and bacon pasta with pesto and spinach";
+			cout << "2. Chicken and bacon pasta with pesto and spinach";
 			break;
 		case 3:
-			cout << "\n 3. Sushi";
+			cout << "3. Sushi";
 			break;
 		case 4:
-			cout << "\n 4. Beef Lasagna with sour cream";
+			cout << "4. Beef Lasagna with sour cream";
 			break;
 		case 5:
-			cout << "\n 5.Creamy chicken and corn soup with bread";
+			cout << "5.Creamy chicken and corn soup with bread";
 			break;
 		default:
+			cout << "invalid option";
 			break;
 		}
 	}
@@ -124,23 +125,23 @@ int main() {
 	bool running = true;
 	bool login = false;
 
-	string email, password;
+	string user, password;
 	int choice;
 	while (running) {
 		choice = getChoice();
 		system("cls");
 		switch (choice) {
 		case 1:
-			email = getEmail();
+			user = getEmail();
 			password = getPassword();
-			createAccount(email, password);
+			createAccount(user, password);
 			cout << endl << "ACCOUNT CREATED" << endl;
 			break;
 
 		case 2:
-			email = getEmail();
+			user = getEmail();
 			password = getPassword();
-			if (auth(email, password) == true) {
+			if (auth(user, password) == true) {
 				cout << endl << "LOGGED IN" << endl;
 				login = true;
 				running = false;
