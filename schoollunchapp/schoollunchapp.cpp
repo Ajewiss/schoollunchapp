@@ -102,12 +102,16 @@ void viewOrders(Order orders[100], int orderNumber) {
 			break;
 		case 2:
 			cout << "\n 2.  Chicken and bacon pasta with pesto and spinach";
+			break;
 		case 3:
 			cout << "\n 3. Sushi";
+			break;
 		case 4:
 			cout << "\n 4. Beef Lasagna with sour cream";
+			break;
 		case 5:
 			cout << "\n 5.Creamy chicken and corn soup with bread";
+			break;
 		default:
 			break;
 		}
