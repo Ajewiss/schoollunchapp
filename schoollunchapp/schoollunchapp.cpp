@@ -87,14 +87,30 @@ Order getOrder()
 
 	return name;
 }
-void viewOrders(Order orders[], int orderNumber) {
+void viewOrders(Order orders[100], int orderNumber) {
 	system("cls");
 	cout << "view current orders \n\n ";
 	for (int i = 0; i < orderNumber; i++)
 	{
 		cout << "order " << i << " student : " << orders[i].student
 			<< " classroom : " << orders[i].classRoom
-			<< " order : " << orders[i].menuItem;
+			<< " order : ";
+		switch (orders[1].menuItem)
+		{
+		case 1:
+			cout << "\n 1. American Hot dogs";
+			break;
+		case 2:
+			cout << "\n 2.  Chicken and bacon pasta with pesto and spinach";
+		case 3:
+			cout << "\n 3. Sushi";
+		case 4:
+			cout << "\n 4. Beef Lasagna with sour cream";
+		case 5:
+			cout << "\n 5.Creamy chicken and corn soup with bread";
+		default:
+			break;
+		}
 	}
 }
 
@@ -137,9 +153,8 @@ int main() {
 			break;
 		}
 	}
-	if (login == true)
+	while   (login == true)
 	{
-		system("cls");
 		cout << "\n\nSchool Lunch System\n\n";
 		cout << "1. enter order : \n";
 		cout << "2. view orders : \n";
