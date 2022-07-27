@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "schoollunchapp.h"
 using namespace std;
 
 struct Order
@@ -88,6 +87,16 @@ Order getOrder()
 
 	return name;
 }
+void viewOrders(Order orders[], int orderNumber) {
+	system("cls");
+	cout << "view current orders \n\n ";
+	for (int i = 0; i < orderNumber; i++)
+	{
+		cout << "order " << i << " student : " << orders[i].student
+			<< " classroom : " << orders[i].classRoom
+			<< " order : " << orders[i].menuItem;
+	}
+}
 
 int main() {
 	Order orders[100];
@@ -144,6 +153,9 @@ int main() {
 		case 1:
 			orders[orderNumber] = getOrder();
 			orderNumber++;
+			break;
+		case 2: 
+			viewOrders(orders, orderNumber);
 			break;
 		case 3:
 			showMenu();
