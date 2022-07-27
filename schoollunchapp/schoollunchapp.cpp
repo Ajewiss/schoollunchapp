@@ -4,7 +4,15 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "schoollunchapp.h"
 using namespace std;
+
+struct Order
+{
+	string student;
+	string classRoom;
+	int menuItem = 0;
+};
 
 int getChoice() {
 	cout << endl << "LOGIN TO SCHOOL LUNCH SYSTEM" << endl;
@@ -54,16 +62,31 @@ void createAccount(string email, string password) {
 	fs.close();
 }
 
-void showMenu()
+int showMenu()
 {
-	system("cls");
+	int menuItem;
 	cout << "\n\tLunch Menu\n\n";
 	cout << "\n 1. American Hot dogs";
-	cout << "\n 2.  Chicken and bacon pasta with pesto and spinach";
+	cout << "\n 2. Chicken and bacon pasta with pesto and spinach";
 	cout << "\n 3. Sushi";
 	cout << "\n 4. Beef Lasagna with sour cream";
-	cout << "\n 5.Creamy chicken and corn soup with bread";
+	cout << "\n 5. Creamy chicken and corn soup with bread\n";
+	cin >> menuItem;
 
+	return menuItem;
+}
+
+Order getOrder()
+{
+	system("cls");
+	Order name;
+	cout << "\nenter students name: ";
+	cin >> name.student;
+	cout << "\nenter classrom: ";
+	cin >> name.classRoom;
+	name.menuItem = showMenu();
+
+	return name;
 }
 
 int main() {
@@ -107,17 +130,23 @@ int main() {
 	{
 		system("cls");
 		cout << "\n\nSchool Lunch System\n\n";
-		cout << "1. students name : \n";
-		cout << "2. class room : \n";
-		cout << "3. view the menu : \n";
-		cout << "4. show orders: \n";
+		cout << "1. enter order : \n";
+		cout << "2. view orders : \n";
+		cout << "3. quit: \n";
 		cout << "Enter option\n";
 		int menuOption;
 		cin >> menuOption;
 
-		if (menuOption == 4)
+		switch (menuOption)
 		{
+		case 1:
+			getOrder();
+			break;
+		case 3:
 			showMenu();
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -136,4 +165,4 @@ int main() {
 // 5. Go to Project > Add New Item to create new code files, or
 //Project > Add Existing Item to add existing code files to the project
 // 6. In the future, to open this project again, go to File > Open >
-//Projectand select the.sln file
+//Project and select the.sln file
