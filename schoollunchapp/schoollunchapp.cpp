@@ -90,6 +90,8 @@ Order getOrder()
 }
 
 int main() {
+	Order orders[100];
+	int orderNumber = 0;
 	bool running = true;
 	bool login = false;
 
@@ -136,11 +138,12 @@ int main() {
 		cout << "Enter option\n";
 		int menuOption;
 		cin >> menuOption;
-
+		
 		switch (menuOption)
 		{
 		case 1:
-			getOrder();
+			orders[orderNumber] = getOrder();
+			orderNumber++;
 			break;
 		case 3:
 			showMenu();
